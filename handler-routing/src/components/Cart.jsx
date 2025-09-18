@@ -1,7 +1,7 @@
-// src/Cart.js
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { clearCart } from '../cartSlice';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { clearCart } from "../cartSlice";
+import { Link } from "react-router-dom";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
@@ -9,7 +9,7 @@ function Cart() {
 
   return (
     <div>
-      <h2>🛒 Cart</h2>
+      <h1>🛒 Cart</h1>
       {cart.length === 0 ? (
         <p>Cart is empty</p>
       ) : (
@@ -19,8 +19,10 @@ function Cart() {
           ))}
         </ul>
       )}
-
       <button onClick={() => dispatch(clearCart())}>Clear Cart</button>
+      <br />
+      {/* 👇 This will go back to / */}
+      <Link to="/">Back to Product</Link>
     </div>
   );
 }

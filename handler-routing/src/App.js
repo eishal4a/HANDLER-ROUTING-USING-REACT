@@ -1,7 +1,7 @@
 // src/App.js
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Product from "./components/Product";
-import Cart from "./Cart";
+import Cart from "./components/Cart";
 
 const router = createBrowserRouter([
   {

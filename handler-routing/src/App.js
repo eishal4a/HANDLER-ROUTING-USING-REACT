@@ -1,21 +1,24 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, useRoutes } from "react-router-dom";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Product />,
-  },
-  {
-    path: "/cart",
-    element: <Cart />,
-  },
-]);
+function AppRoutes() {
+  // define routes using hook
+  let routes = useRoutes([
+    { path: "/", element: <Product /> },
+    { path: "/cart", element: <Cart /> },
+  ]);
+
+  return routes; 
+}
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
 }
 
 export default App;
